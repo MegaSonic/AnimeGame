@@ -24,7 +24,7 @@ AnimationClip:
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
-      - time: 4.983333
+      - time: 24.983334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -44,7 +44,7 @@ AnimationClip:
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
-      - time: 4.983333
+      - time: 24.983334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -82,7 +82,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 4.983333
+    m_StopTime: 24.983334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -106,7 +106,7 @@ AnimationClip:
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
-      - time: 4.983333
+      - time: 24.983334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -126,7 +126,7 @@ AnimationClip:
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 31
-      - time: 4.983333
+      - time: 24.983334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -143,7 +143,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: 1
+  - time: 7.516667
     functionName: LoadLevel
     data: 
     objectReferenceParameter: {fileID: 0}
