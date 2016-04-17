@@ -16,6 +16,6 @@ public class NewGame : MonoBehaviour {
 
     public void StartNewGame()
     {
-        _animation.Play();
+        _animation.Play("Stinger");
     }
 }
