@@ -22,4 +22,6 @@ MonoBehaviour:
   - {fileID: 21300010, guid: 284d3b1ce1f54464d953eb449ed63521, type: 3}
   sequenceCode: 
   cue: 
-  triggers: []
+  triggers:
+  - name: Destroy
+    frame: 6
