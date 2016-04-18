@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CameraPlatform
   - LevelTrigger
+  - DeathTrigger
   layers:
   - Default
   - TransparentFX

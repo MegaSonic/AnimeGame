@@ -19953,6 +19953,48 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 493320, guid: 881fa08d4e1385f419f7df64b8427d3e, type: 2}
   m_PrefabInternal: {fileID: 1903562716}
+--- !u!1 &893452347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 893452349}
+  - 61: {fileID: 893452348}
+  m_Layer: 10
+  m_Name: DeathTrigger
+  m_TagString: DeathTrigger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &893452348
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 893452347}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -157.58557, y: -2.0617409}
+  serializedVersion: 2
+  m_Size: {x: 928.5995, y: 23.991577}
+--- !u!4 &893452349
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 893452347}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 162.42308, y: -47.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
 --- !u!4 &893677126 stripped
 Transform:
   m_PrefabParentObject: {fileID: 492538, guid: 37f27dfea9b53fc479f32a4041773c69, type: 2}
@@ -25518,7 +25560,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

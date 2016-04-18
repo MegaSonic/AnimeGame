@@ -1,36 +1,37 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using Prime31;
 
 
 public class DeathScript :MonoBehaviour
 {
 
-	Vector3 regeneration; 
+    private CharacterController2D _controller;
+
+    public void Awake()
+    {
+        _controller = GetComponent<CharacterController2D>();
+    }
 
 	public void Start () 
 	{
-
-
-		regeneration = transform.position;
-
+        _controller.onTriggerEnterEvent += OnDeath;
 	}
-		public void OnTriggerEnter(Collider other) 
-		{
 
 
-			if (other.gameObject.CompareTag("CheckPoint"))
-		    {
-			regeneration = other.transform.position;
-			//Destroy (other.gameObject);
+    public void Update()
+    {
 
-			}
+    }
 
+    public void OnDeath(Collider2D col)
+    {
+        if (col.gameObject.tag == "DeathTrigger")
+        {
+            SceneManager.LoadScene("Possibility");
+        }
+    }
 
-			if (other.gameObject.CompareTag ("Hazard"))
-			{
-			transform.position = regeneration;
-			}
-		}// reload the scene
-       
 }

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3f561337246f08e438934d6f7475ce27
-timeCreated: 1460952778
+timeCreated: 1460969777
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -210,20 +210,20 @@ TextureImporter:
         width: 59
         height: 95
       alignment: 9
-      pivot: {x: 0.39447266, y: 0}
+      pivot: {x: 0.39790177, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -7.2738876, y: 95}
-        - {x: -22.273888, y: 78}
-        - {x: -23.273888, y: 63}
-        - {x: -23.273888, y: 14}
-        - {x: -18.273888, y: 12}
-        - {x: -16.273888, y: 16}
-        - {x: -13.273888, y: 6}
-        - {x: -10.273888, y: 0}
-        - {x: 29.726112, y: 0}
-        - {x: 35.726112, y: 13}
-        - {x: 35.726112, y: 95}
+      - - {x: -7.476204, y: 95}
+        - {x: -22.476204, y: 78}
+        - {x: -23.476204, y: 63}
+        - {x: -23.476204, y: 14}
+        - {x: -18.476204, y: 12}
+        - {x: -16.476204, y: 16}
+        - {x: -13.476204, y: 6}
+        - {x: -10.476204, y: 0}
+        - {x: 29.523796, y: 0}
+        - {x: 35.523796, y: 13}
+        - {x: 35.523796, y: 95}
     - name: PC Computer - Card Captor Sakura Card Hunter 2 - Sakura 2 copy_2
       rect:
         serializedVersion: 2
@@ -250,16 +250,16 @@ TextureImporter:
         width: 63
         height: 95
       alignment: 9
-      pivot: {x: 0.44619122, y: 0}
+      pivot: {x: 0.45259094, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -15.110046, y: 95}
-        - {x: -28.110046, y: 62}
-        - {x: -28.110046, y: 5}
-        - {x: -24.110046, y: 0}
-        - {x: 32.889954, y: 0}
-        - {x: 34.889954, y: 21}
-        - {x: 34.889954, y: 95}
+      - - {x: -15.513229, y: 95}
+        - {x: -28.51323, y: 62}
+        - {x: -28.51323, y: 5}
+        - {x: -24.51323, y: 0}
+        - {x: 32.48677, y: 0}
+        - {x: 34.48677, y: 21}
+        - {x: 34.48677, y: 95}
     - name: PC Computer - Card Captor Sakura Card Hunter 2 - Sakura 2 copy_4
       rect:
         serializedVersion: 2

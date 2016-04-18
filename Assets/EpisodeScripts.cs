@@ -17,6 +17,6 @@ public class EpisodeScripts : MonoBehaviour {
     public void LoadLevel()
     {
         //Application.LoadLevel("Level");
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene("Possibility");
     }
 }
