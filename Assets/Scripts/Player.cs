@@ -120,7 +120,7 @@ public class Player : MonoBehaviour {
             case State.IDLE:
                 if (!_animator.IsPlaying("Idle"))
                 {
-                    _animator.Play("Idle");
+                    _animator.ForcePlay("Idle");
                 }
 
                 _releasedJump = false;
@@ -130,17 +130,17 @@ public class Player : MonoBehaviour {
                 {
                     state = State.JUMPING;
                     _releasedJump = true;
-                    _animator.Play("Jump", true, 2);
+                    _animator.Play("JumpFall");
                     break;
                 }
                 else
                 {
                     _afterimages.StopImages();
-                    if (Input.GetKey(KeyCode.DownArrow))
+                    if (Input.GetAxis("Vertical") < 0 && _controller.ground.gameObject.layer == 9)
                     {
                         _velocity.y -= 3f;
                         _controller.ignoreOneWayPlatformsThisFrame = true;
-                        _animator.Play("Jump", true, 2);
+                        _animator.Play("JumpFall");
                     }
                 }
 
@@ -165,7 +165,8 @@ public class Player : MonoBehaviour {
 
                 if (!_animator.IsPlaying("Walk"))
                 {
-                    _animator.Play("Walk");
+                    _animator.ForcePlay("Walk");
+                    //_animator.Play("Walk");
                 }
 
                 if (!_controller.isGrounded)
@@ -178,7 +179,7 @@ public class Player : MonoBehaviour {
                 else
                 {
                     _afterimages.StopImages();
-                    if (Input.GetKey(KeyCode.DownArrow))
+                    if (Input.GetAxis("Vertical") < 0 && _controller.ground.gameObject.layer == 9)
                     {
                         _velocity.y -= 3f;
                         _controller.ignoreOneWayPlatformsThisFrame = true;
@@ -229,7 +230,7 @@ public class Player : MonoBehaviour {
                 if (_controller.isGrounded)
                 {
                     _afterimages.StopImages();
-                    if (Input.GetKey(KeyCode.DownArrow))
+                    if (Input.GetAxis("Horizontal") < 0)
                     {
                         _velocity.y -= 3f;
                         _controller.ignoreOneWayPlatformsThisFrame = true;
@@ -404,7 +405,7 @@ public class Player : MonoBehaviour {
                 }
                 else
                 {
-                    if (Input.GetAxis("Vertical") > 0)
+                    if (Input.GetAxis("Vertical") < 0)
                     {
                         _velocity.y -= 3f;
                         _controller.ignoreOneWayPlatformsThisFrame = true;
@@ -528,7 +529,7 @@ public class Player : MonoBehaviour {
                     _disableGravity = false;
                 }
 
-                if (Input.GetAxis("Vertical") < 0 && Input.GetButtonDown("Dash") && !_usedVairDash)
+                if (Input.GetAxis("Vertical") > 0 && Input.GetButtonDown("Dash") && !_usedVairDash)
                 {
                     state = State.VAIRDASHING;
                     _animator.Play("DoubleJump");
@@ -758,6 +759,7 @@ public class Player : MonoBehaviour {
         _disableGravity = true;
         _velocity.y = diveVerticalSpeed;
         _afterimages.StartImages();
+        _animator.Play("JumpFall");
         if (Input.GetAxis("Horizontal") > 0)
         {
             _velocity.x = diveHorizontalSpeed;

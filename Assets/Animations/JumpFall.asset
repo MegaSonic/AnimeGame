@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: JumpFall
   m_EditorClassIdentifier: 
   name: JumpFall
-  fps: 10
+  fps: 20
   frames:
   - {fileID: 21300018, guid: 3f561337246f08e438934d6f7475ce27, type: 3}
   sequenceCode: 
