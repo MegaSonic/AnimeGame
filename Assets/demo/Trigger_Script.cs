@@ -24,7 +24,7 @@ public class Trigger_Script : MonoBehaviour {
     
     void ActivateObject(Collider2D col)
     {
-        if (Obj2_Activate.gameObject.activeSelf == false)
+        if (col.gameObject.tag == "LevelTrigger" && Obj2_Activate.gameObject.activeSelf == false)
         {
             Obj2_Activate.gameObject.SetActive(true);
         }
