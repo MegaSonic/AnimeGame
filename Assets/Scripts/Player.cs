@@ -48,7 +48,7 @@ public class Player : MonoBehaviour {
     public bool isInvincible = false;
     public float invincibleTime = 1.5f;
 
-
+    public Vector3 lastGroundedPosition;
 
     public float hurtTime = 1.5f;
     public float hurtKnockbackSpeed = 2;
@@ -111,6 +111,7 @@ public class Player : MonoBehaviour {
             _usedAirDash = false;
             usedDoubleJump = false;
             _usedVairDash = false;
+            lastGroundedPosition = this.gameObject.transform.position;
         }
 
         switch (state)
@@ -262,11 +263,13 @@ public class Player : MonoBehaviour {
                     if (transform.localScale.x > 0f)
                         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
+                    /*
                     if (_controller.collisionState.left && _controller.velocity.y < 0)
                     {
                         state = State.WALLCLINGING;
                         break;
                     }
+                     */
 
                 }
                 else if (Input.GetAxis("Horizontal") > 0 )
@@ -306,11 +309,13 @@ public class Player : MonoBehaviour {
                     }
                     if (transform.localScale.x < 0f)
                         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                    /*
                     if (_controller.collisionState.right && _controller.velocity.y < 0)
                     {
                         state = State.WALLCLINGING;
                         break;
                     }
+                     */
                 }
                 else
                 {
@@ -490,7 +495,7 @@ public class Player : MonoBehaviour {
                     StartVairDash();
                     break;
                 }
-
+                /*
                 if (Input.GetAxis("Horizontal") > 0 && _controller.collisionState.right)
                 {
                     state = State.WALLCLINGING;
@@ -499,9 +504,10 @@ public class Player : MonoBehaviour {
                 {
                     state = State.WALLCLINGING;
                 }
-
+                */
                 break;
 
+                /*
             case State.WALLCLINGING:
                 dashJump = false;
                 usedDoubleJump = false;
@@ -597,6 +603,7 @@ public class Player : MonoBehaviour {
                     break;
                 }
                 break;
+                 */
             case State.VAIRDASHING:
                 _velocity.y = 0;
                 _vairDashTimer -= Time.deltaTime;
@@ -620,10 +627,10 @@ public class Player : MonoBehaviour {
                 _hurtTimer -= Time.deltaTime;
                 _hurtKnockbackTimer -= Time.deltaTime;
 
-                Quaternion rotate = Quaternion.Euler(new Vector3(0, 0, transform.rotation.eulerAngles.z + (1000 * Time.deltaTime)));
+                //Quaternion rotate = Quaternion.Euler(new Vector3(0, 0, transform.rotation.eulerAngles.z + (1000 * Time.deltaTime)));
                 
 
-                transform.rotation = rotate;
+                //transform.rotation = rotate;
 
                 if (_hurtTimer <= 0)
                 {

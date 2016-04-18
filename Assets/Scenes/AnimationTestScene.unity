@@ -118,9 +118,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d5f332b9c80d4c3468604bff5aa3a973, type: 2}
   - {fileID: 11400000, guid: e4ea0d6fad79ab740aad6263c3dcbde0, type: 2}
   - {fileID: 11400000, guid: cbc938826cc2ad648879bfb71ce55b02, type: 2}
+  - {fileID: 11400000, guid: 30aeabdf7bf112849a8b5faf05092203, type: 2}
+  - {fileID: 11400000, guid: 3db94d0441f4f1b458527c3d7401f1f8, type: 2}
+  - {fileID: 11400000, guid: 08da9b75cc3494b40902d66a3f2b77a5, type: 2}
+  - {fileID: 11400000, guid: 1d758da77fe41eb4582aa9398251ede5, type: 2}
+  - {fileID: 11400000, guid: 1ac110e51f99b7145a9605fc2f8f53c5, type: 2}
   loop: 0
   speedMultiplier: 1
-  playAnimationOnStart: Walk
+  playAnimationOnStart: DoubleJump
 --- !u!212 &5931036
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -344,6 +349,7 @@ MonoBehaviour:
   gravity: -10
   deathJumpHeight: 5
   isDead: 0
+  _animator: {fileID: 0}
 --- !u!1001 &638950929
 Prefab:
   m_ObjectHideFlags: 0
