@@ -40,5 +40,5 @@ MonoBehaviour:
   - {fileID: 21300100, guid: 3f561337246f08e438934d6f7475ce27, type: 3}
   - {fileID: 21300102, guid: 3f561337246f08e438934d6f7475ce27, type: 3}
   sequenceCode: 
-  cue: 
+  cue: 2.1:Idle
   triggers: []

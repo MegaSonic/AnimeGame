@@ -123,9 +123,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 08da9b75cc3494b40902d66a3f2b77a5, type: 2}
   - {fileID: 11400000, guid: 1d758da77fe41eb4582aa9398251ede5, type: 2}
   - {fileID: 11400000, guid: 1ac110e51f99b7145a9605fc2f8f53c5, type: 2}
+  - {fileID: 11400000, guid: 84cf682c3a74edf4483c5e84195265c6, type: 2}
   loop: 0
   speedMultiplier: 1
-  playAnimationOnStart: DoubleJump
+  playAnimationOnStart: Dash
 --- !u!212 &5931036
 SpriteRenderer:
   m_ObjectHideFlags: 0

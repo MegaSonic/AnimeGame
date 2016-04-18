@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour, IHealth, IKillable {
     {
         _animator.Play("EnemyDeath");
         isDead = true;
-        
+        this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     public void Destroy()
