@@ -5470,6 +5470,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 881fa08d4e1385f419f7df64b8427d3e, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &244873028
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 479492, guid: 497034f057d4c02429540c9ac8674416, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 191.21843
+      objectReference: {fileID: 0}
+    - target: {fileID: 479492, guid: 497034f057d4c02429540c9ac8674416, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 13.7365675
+      objectReference: {fileID: 0}
+    - target: {fileID: 479492, guid: 497034f057d4c02429540c9ac8674416, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 479492, guid: 497034f057d4c02429540c9ac8674416, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 479492, guid: 497034f057d4c02429540c9ac8674416, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 479492, guid: 497034f057d4c02429540c9ac8674416, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 479492, guid: 497034f057d4c02429540c9ac8674416, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 479492, guid: 497034f057d4c02429540c9ac8674416, type: 2}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 497034f057d4c02429540c9ac8674416, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &246475579 stripped
 Transform:
   m_PrefabParentObject: {fileID: 492538, guid: 37f27dfea9b53fc479f32a4041773c69, type: 2}
@@ -31822,7 +31864,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
