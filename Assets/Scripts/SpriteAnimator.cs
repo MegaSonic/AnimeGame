@@ -124,7 +124,7 @@ public class SpriteAnimator : MonoBehaviour
         return null;
     }
 
-    IEnumerator CueAnimation(string animationName, float minTime, float maxTime)
+    public IEnumerator CueAnimation(string animationName, float minTime, float maxTime)
     {
         yield return new WaitForSeconds(Random.Range(minTime, maxTime));
         ForcePlay(animationName, false);

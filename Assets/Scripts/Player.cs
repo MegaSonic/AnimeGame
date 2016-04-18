@@ -79,7 +79,7 @@ public class Player : MonoBehaviour {
     private WallJumpState _wallJumpState;
 
     private float _hurtDistance;
-
+    private SpriteAnimator _animator;
     #endregion
 
     // Use this for initialization
@@ -91,6 +91,7 @@ public class Player : MonoBehaviour {
     {
         _controller = GetComponent<CharacterController2D>();
         _afterimages = GetComponent<Afterimages>();
+        _animator = GetComponent<SpriteAnimator>();
     }
 	
 	// Update is called once per frame
@@ -117,6 +118,11 @@ public class Player : MonoBehaviour {
         switch (state)
         {
             case State.IDLE:
+                if (!_animator.IsPlaying("Idle"))
+                {
+                    _animator.Play("Idle");
+                }
+
                 _releasedJump = false;
                 _velocity.x = 0;
 
@@ -124,6 +130,7 @@ public class Player : MonoBehaviour {
                 {
                     state = State.JUMPING;
                     _releasedJump = true;
+                    _animator.Play("Jump", true, 2);
                     break;
                 }
                 else
@@ -133,12 +140,14 @@ public class Player : MonoBehaviour {
                     {
                         _velocity.y -= 3f;
                         _controller.ignoreOneWayPlatformsThisFrame = true;
+                        _animator.Play("Jump", true, 2);
                     }
                 }
 
                 if (Input.GetAxis("Horizontal") < 0 || Input.GetAxis("Horizontal") > 0)
                 {
                     state = State.RUNNING;
+                    _animator.Play("Walk");
                 }
 
                 if (Input.GetButtonDown("Jump"))
@@ -146,6 +155,7 @@ public class Player : MonoBehaviour {
                     if (_controller.isGrounded)
                     {
                         state = State.JUMPING;
+                        _animator.Play("Jump");
                         StartJump(ref _velocity);
                     }
                 }
@@ -153,10 +163,16 @@ public class Player : MonoBehaviour {
             case State.RUNNING:
                 _releasedJump = false;
 
+                if (!_animator.IsPlaying("Walk"))
+                {
+                    _animator.Play("Walk");
+                }
+
                 if (!_controller.isGrounded)
                 {
                     state = State.JUMPING;
                     _releasedJump = true;
+                    _animator.Play("JumpFall");
                     break;
                 }
                 else
@@ -166,6 +182,7 @@ public class Player : MonoBehaviour {
                     {
                         _velocity.y -= 3f;
                         _controller.ignoreOneWayPlatformsThisFrame = true;
+                        _animator.Play("JumpFall");
                     }
                 }
 
@@ -190,18 +207,25 @@ public class Player : MonoBehaviour {
                 if (Input.GetButtonDown("Dash"))
                 {
                     state = State.DASHING;
+                    _animator.Play("Dash");
+                    
                     StartDash();
                 }
 
                 if (Input.GetButtonDown("Jump"))
                 {
                     state = State.JUMPING;
+                    _animator.Play("Jump");
                     StartJump(ref _velocity);
                 }
 
                 break;
 
             case State.JUMPING:
+
+                if (!(_animator.IsPlaying("Jump") || _animator.IsPlaying("JumpFall")) && !usedDoubleJump) _animator.Play("JumpFall");
+                if (!(_animator.IsPlaying("DoubleJump") || _animator.IsPlaying("DoubleJumpHold")) && usedDoubleJump) _animator.Play("DoubleJumpHold");
+
                 if (_controller.isGrounded)
                 {
                     _afterimages.StopImages();
@@ -217,6 +241,7 @@ public class Player : MonoBehaviour {
                     {
                         state = State.DIVING;
                         StartDive();
+                        _animator.Play("JumpFall");
                         break;
                     }
                 }
@@ -333,6 +358,7 @@ public class Player : MonoBehaviour {
                 {
                     state = State.VAIRDASHING;
                     StartVairDash();
+                    _animator.Play("DoubleJump");
                     break;
                 }
 
@@ -340,6 +366,7 @@ public class Player : MonoBehaviour {
                 {
                     StartAirDash();
                     state = State.AIRDASHING;
+                    _animator.Play("Dash");
                     break;
                 }
 
@@ -347,6 +374,7 @@ public class Player : MonoBehaviour {
                 {
                     _velocity.y = 0;
                     _releasedJump = true;
+                    
                     break;
                 }
 
@@ -355,12 +383,14 @@ public class Player : MonoBehaviour {
                     StartJump(ref _velocity);
                     state = State.JUMPING;
                     usedDoubleJump = true;
+                    _animator.Play("DoubleJump");
                 }
 
 
                 break;
 
             case State.DASHING:
+
                 _releasedJump = false;
                 _dashTimer -= Time.deltaTime;
 
@@ -368,6 +398,7 @@ public class Player : MonoBehaviour {
                 {
                     state = State.JUMPING;
                     _releasedJump = true;
+                    _animator.Play("JumpFall");
                     dashJump = true;
                     break;
                 }
@@ -401,7 +432,10 @@ public class Player : MonoBehaviour {
                     if (transform.localScale.x > 0f)
                         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
                     if (releasedDash)
+                    {
                         state = State.RUNNING;
+                        _animator.Play("Walk");
+                    }
                 }
                 else if (Input.GetAxis("Horizontal") > 0)
                 {
@@ -409,7 +443,10 @@ public class Player : MonoBehaviour {
                     if (transform.localScale.x < 0f)
                         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
                     if (releasedDash)
+                    {
                         state = State.RUNNING;
+                        _animator.Play("Walk");
+                    }
                 }
                 else
                 {
@@ -421,6 +458,7 @@ public class Player : MonoBehaviour {
                 {
                     state = State.JUMPING;
                     dashJump = true;
+                    _animator.Play("Jump");
                     StartJump(ref _velocity);
                 }
 
@@ -486,12 +524,14 @@ public class Player : MonoBehaviour {
                 if (releasedAirDash)
                 {
                     state = State.JUMPING;
+                    _animator.Play("JumpFall");
                     _disableGravity = false;
                 }
 
                 if (Input.GetAxis("Vertical") < 0 && Input.GetButtonDown("Dash") && !_usedVairDash)
                 {
                     state = State.VAIRDASHING;
+                    _animator.Play("DoubleJump");
                     StartVairDash();
                     break;
                 }
@@ -618,14 +658,20 @@ public class Player : MonoBehaviour {
                 if (Input.GetAxis("Horizontal") != 0 && Input.GetButtonDown("Dash") && !_usedAirDash)
                 {
                     state = State.AIRDASHING;
+                    _animator.Play("Dash");
                     StartAirDash();
                     break;
                 }
 
                 break;
             case State.HURT:
+                if (!_animator.IsPlaying("Hurt"))
+                {
+                    _animator.Play("Hurt");
+                }
                 _hurtTimer -= Time.deltaTime;
                 _hurtKnockbackTimer -= Time.deltaTime;
+
 
                 //Quaternion rotate = Quaternion.Euler(new Vector3(0, 0, transform.rotation.eulerAngles.z + (1000 * Time.deltaTime)));
                 
@@ -765,7 +811,7 @@ public class Player : MonoBehaviour {
         // dashJump = true;
         _vairDashTimer = vairDashTime;
         _disableGravity = true;
-
+        _afterimages.StartImages();
         _velocity.x = 0;
         _velocity.y = 0;
     }

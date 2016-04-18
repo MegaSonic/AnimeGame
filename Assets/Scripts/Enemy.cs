@@ -49,6 +49,7 @@ public class Enemy : MonoBehaviour, IHealth, IKillable {
         _animator.Play("EnemyDeath");
         isDead = true;
         this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        this.gameObject.GetComponentInChildren<BoxCollider2D>().enabled = false;
     }
 
     public void Destroy()
@@ -66,6 +67,8 @@ public class Enemy : MonoBehaviour, IHealth, IKillable {
 
         if (isDead)
         {
+            if (!_animator.IsPlaying("EnemyDeath")) _animator.Play("EnemyDeath");
+
             _velocity.x = 0;
             _velocity.y = 0;
         }
