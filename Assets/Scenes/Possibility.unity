@@ -455,7 +455,7 @@ MonoBehaviour:
   imagesToDisplay: 3
   imageColor: {r: 0.9191176, g: 0.17571367, b: 0.9191176, a: 0.684}
   delayBetweenImages: 2
-  positionsToSave: 30
+  positionsToSave: 50
 --- !u!114 &2896896
 MonoBehaviour:
   m_ObjectHideFlags: 0

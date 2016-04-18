@@ -45,6 +45,8 @@ public class Afterimages : MonoBehaviour {
 
     // Use this for initialization
 	void Start () {
+        Application.targetFrameRate = 60;
+
         imagePositions = new Vector3[positionsToSave];
         images = new List<Transform>(imagesToDisplay);
         sprite = GetComponent<SpriteRenderer>();
