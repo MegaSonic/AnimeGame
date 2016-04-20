@@ -141,6 +141,7 @@ public class Player : MonoBehaviour {
                         _velocity.y -= 3f;
                         _controller.ignoreOneWayPlatformsThisFrame = true;
                         _animator.Play("JumpFall");
+                        break;
                     }
                 }
 
@@ -157,6 +158,7 @@ public class Player : MonoBehaviour {
                         state = State.JUMPING;
                         _animator.Play("Jump");
                         StartJump(ref _velocity);
+                        break;
                     }
                 }
                 break;
@@ -230,11 +232,7 @@ public class Player : MonoBehaviour {
                 if (_controller.isGrounded)
                 {
                     _afterimages.StopImages();
-                    if (Input.GetAxis("Horizontal") < 0)
-                    {
-                        _velocity.y -= 3f;
-                        _controller.ignoreOneWayPlatformsThisFrame = true;
-                    }
+                    
                 }
                 else
                 {
