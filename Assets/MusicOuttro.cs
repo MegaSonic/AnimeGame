@@ -34,7 +34,7 @@ public class MusicOuttro : MonoBehaviour {
 
     void PlayMovie()
     {
-        movie.Play();
-        movie.loop = true;
+        //movie.Play();
+        //movie.loop = true;
     }
 }

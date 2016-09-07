@@ -153,6 +153,7 @@ namespace Prime31
         public Vector3 velocity;
         public bool isGrounded { get { return collisionState.below; } }
         public Collider2D ground;
+        public Collider2D wallBeingTouched;
         public Vector2 landingPoint;
 
         const float kSkinWidthFloatFudgeFactor = 0.001f;
@@ -364,6 +365,7 @@ namespace Prime31
         /// </summary>
         void moveHorizontally(ref Vector3 deltaMovement)
         {
+            wallBeingTouched = null;
             var isGoingRight = deltaMovement.x > 0;
             var rayDistance = Mathf.Abs(deltaMovement.x) + _skinWidth;
             var rayDirection = isGoingRight ? Vector2.right : -Vector2.right;
@@ -405,6 +407,11 @@ namespace Prime31
                     {
                         deltaMovement.x += _skinWidth;
                         collisionState.left = true;
+                    }
+
+                    if (wallBeingTouched != _raycastHit.collider)
+                    {
+                        wallBeingTouched = _raycastHit.collider;
                     }
 
                     _raycastHitsThisFrame.Add(_raycastHit);

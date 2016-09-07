@@ -22,6 +22,8 @@ public class PlayerPickup : MonoBehaviour {
         _controller.onTriggerEnterEvent += Pickup;
     }
 
+ 
+
     void Pickup(Collider2D col)
     {
         if (col.gameObject.GetInterface<IPickupable>() != null)

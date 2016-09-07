@@ -60,7 +60,7 @@ public class Player : MonoBehaviour {
     #region Private members
     private CharacterController2D _controller;
     private bool _releasedJump = false;
-    private Vector3 _velocity;
+    public Vector3 _velocity;
     private bool _jumpedThisFrame = false;
     private float _dashTimer;
     private bool _disableGravity = false;
@@ -194,12 +194,24 @@ public class Player : MonoBehaviour {
                     _velocity.x = -1 * runSpeed;
                     if (transform.localScale.x > 0f)
                         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+
+                    if (_controller.collisionState.left && _controller.wallBeingTouched != null && _controller.wallBeingTouched.gameObject.GetInterface<IPushable>() != null)
+                    {
+                        var pushable = _controller.wallBeingTouched.gameObject.GetInterface<IPushable>();
+                        pushable.Push(PushState.LEFT);
+                    }
                 }
                 else if (Input.GetAxis("Horizontal") > 0)
                 {
                     _velocity.x = runSpeed;
                     if (transform.localScale.x < 0f)
                         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+
+                    if (_controller.collisionState.right && _controller.wallBeingTouched != null && _controller.wallBeingTouched.gameObject.GetInterface<IPushable>() != null)
+                    {
+                        var pushable = _controller.wallBeingTouched.gameObject.GetInterface<IPushable>();
+                        pushable.Push(PushState.RIGHT);
+                    }
                 }
                 else
                 {
